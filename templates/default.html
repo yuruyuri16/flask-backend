@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Base de Datos 2 - PC4</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="nav">
+    <a class="title" href="/">Base de Datos 2</a>
+    <div class="nav-right">
+        <a href="/upload">UPLOAD</a>
+    </div>
+</nav>
+<div>
+{% block content %}{% endblock %}
+</div>
+</body>
+</html>

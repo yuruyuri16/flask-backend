@@ -1,14 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Upload Image</title>
-</head>
-<body>
+{% extends 'default.html' %}
+
+{% block content %}
 <h1>Upload page</h1>
-<form method="post">
+{% if error %}
+    Error: {{ error }}
+{% endif %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<form method="post" enctype="multipart/form-data">
     <label for="image">Image:</label>
-    <input type="file" id="image" name="image">
+    <input type="file" id="image" name="image" />
+    <input type="submit" value="send" />
 </form>
-</body>
-</html>
+{% endblock %}
