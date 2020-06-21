@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Downloads/ejemplo_busqueda_secuencial/.idea/ejemplo_busqueda_secuencial.iml" filepath="$USER_HOME$/Downloads/ejemplo_busqueda_secuencial/.idea/ejemplo_busqueda_secuencial.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/pc4.iml" filepath="$PROJECT_DIR$/.idea/pc4.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/script/.idea/script.iml" filepath="$USER_HOME$/Downloads/script/.idea/script.iml" />
     </modules>
   </component>
 </project>

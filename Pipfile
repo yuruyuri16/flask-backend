@@ -10,6 +10,7 @@ flask = "*"
 face-recognition = "*"
 opencv-python = "*"
 rtree = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.8"

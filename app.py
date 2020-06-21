@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, request
+from flask_cors import cross_origin
 import face_recognition
 import cv2
-import rtree
+from rtree import index
 import os
 from werkzeug.utils import secure_filename
 
@@ -19,31 +20,21 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/')
-def hello_world():
-    return render_template('index.html')
-
-
-@app.route('/upload', methods=['GET', 'POST'])
+@app.route('/upload', methods=['POST'])
+@cross_origin()
 def upload():
-    error = None
     if request.method == 'POST':
-        print(request.form)
-        print(request.url)
-        print(dict(request.files))
-        if 'image' not in request.files:
-            flash('No input with the image name')
-            return redirect(request.url)
         file = request.files['image']
 
-        if file.filename == '':
-            error = 'No selected file'
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            flash('Successful submission')
-            return redirect(url_for('upload'))
-    return render_template('upload.html', error=error)
+            face_image = face_recognition.load_image_file(UPLOAD_FOLDER + file.filename)
+            encoding = face_recognition.face_encodings(face_image)
+            data = {
+                'response': 'Enviado con exito.'
+            }
+            return data, 200
 
 
 if __name__ == '__main__':
