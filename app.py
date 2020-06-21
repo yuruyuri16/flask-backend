@@ -4,7 +4,10 @@ import face_recognition
 import cv2
 from rtree import index
 import os
+from pathlib import Path
 from werkzeug.utils import secure_filename
+
+Path('static/images').mkdir(parents=True, exist_ok=True)
 
 WORKING_DIRECTORY = os.getcwd()
 UPLOAD_FOLDER = WORKING_DIRECTORY + '/static/images/'
