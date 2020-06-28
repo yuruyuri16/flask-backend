@@ -18,7 +18,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 
-def allowed_file(filename):
+def allowed_file(filename: str) -> bool:
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
@@ -34,6 +34,7 @@ def upload():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             face_image = face_recognition.load_image_file(UPLOAD_FOLDER + file.filename)
             encoding = face_recognition.face_encodings(face_image)
+            print(encoding)
             data = {
                 'response': 'Enviado con exito.'
             }
