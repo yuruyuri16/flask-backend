@@ -1,7 +1,7 @@
 # Base de datos 2 - PC4
 
 | Integrantes |
-|-|-|-|
+|-|
 | Antonio Toche |
 | Miguel Yurivilca |
 
