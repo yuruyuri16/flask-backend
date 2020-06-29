@@ -77,7 +77,7 @@ def md(e1, e2):
 
 def knn(query, k):
     queue = PriorityQueue()
-    for person, encodings in all_encodings104.items():
+    for person, encodings in all_encodings.items():
         for encoding in encodings:
             dist = ed(query, encoding)
             queue.put(PrioritizedItem(dist, {person: dist}))
@@ -90,9 +90,9 @@ def rtree(query, k):
     d = {}
 
     p.dimension = 128
-    idx128d = index.Index('128d_index104', properties=p)
+    idx128d = index.Index('128d_index', properties=p)
     i = 0
-    for person, encodings in all_encodings104.items():
+    for person, encodings in all_encodings.items():
         for encoding in encodings:
             d[i] = person
             t = tuple(encoding)
@@ -120,20 +120,23 @@ def upload():
                 return {
                     'message': 'no face detected'
                 }, 422
-            print(file.filename, k)
+            data = {'knn': {'result': []}, 'rtree': {'result': []}}
+
             start = time.time()
             k_list = knn(face_encoding, k)
             end = time.time()
-            print('knn:', end - start)
+            data['knn']['time'] = end - start
+
             start = time.time()
             people = rtree(face_encoding, k)
             end = time.time()
-            print('rtree:', end - start)
-            data = {'knn': [], 'rtree': []}
+            data['rtree']['time'] = end - start
+
             for result in k_list:
                 for k, v in result.item.items():
-                    data['knn'].append({k: v})
-            data['rtree'] = people
+                    data['knn']['result'].append({k: v})
+            data['rtree']['result'] = people
+
             return jsonify(data), 200
 
 
