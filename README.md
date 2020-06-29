@@ -13,9 +13,9 @@ cuando se realice una misma consulta por segunda vez
 
 | Precision | ED | MD |
 |-|-|-|
-| K = 4 | 100% |  |
-| K = 8 |  |  |
-| K = 16 |  |  |
+| K = 4 | 100% | 100% |
+| K = 8 | 100% | 100% |
+| K = 16 | 100% | 100% |
 
 #### Evidencia
 
@@ -24,6 +24,19 @@ Serena_Williams_0013.jpg, k=4, ed:
 
 Serena_Williams_0013.jpg, k=4, md:
 ![alt text](static/screenshots/s2.png)
+
+Serena_Williams_0013.jpg, k=8, ed:
+![alt text](static/screenshots/s3.png)
+
+Serena_Williams_0013.jpg, k=8, md:
+![alt text](static/screenshots/s4.png)
+
+Serena_Williams_0013.jpg, k=16, ed:
+![alt text](static/screenshots/s5.png)
+
+Serena_Williams_0013.jpg, k=16, md:
+![alt text](static/screenshots/s6.png)
+
 
 ### Directorio ```utils/read_images.py```
 
