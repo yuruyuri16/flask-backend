@@ -20,10 +20,10 @@ cuando se realice una misma consulta por segunda vez
 #### Evidencia
 
 Serena_Williams_0013.jpg, k=4, ed:
-![alt text][static/screenshots/s1.png]
+![alt text](static/screenshots/s1.png)
 
 Serena_Williams_0013.jpg, k=4, md:
-![alt text][https://github.com/yuruyuri16/flask-backend/blob/develop/static/screenshots/s2.png "S2"]
+![alt text](static/screenshots/s2.png)
 
 ### Directorio ```utils/read_images.py```
 
