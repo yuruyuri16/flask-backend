@@ -1,5 +1,10 @@
 # Base de datos 2 - PC4
 
+| Integrantes |
+|-|-|-|
+| Antonio Toche |
+| Miguel Yurivilca |
+
 ### Prerequisitos
 
 Para macOS
@@ -14,12 +19,28 @@ cuando se realice una misma consulta por segunda vez
 
 # Experimento 1
 
-
 | Precision | ED | MD |
 |-|-|-|
 | K = 4 | 100% | 100% |
 | K = 8 | 100% | 100% |
 | K = 16 | 100% | 100% |
+
+## Algoritmo
+
+Se implemento un knn usando la distancia euclediana y la de manhattan.
+
+Se itera cada encoding de las imagenes en ```data/``` y se compara con
+el encoding de la imagen subida. Ya que los encodings de las imagen son
+arreglos, podemos usar las siguientes formulas para calcular la distancia
+de un vector de ```n``` dimensiones.
+
+### Euclediana
+
+![alt text](static/screenshots/euclidean.png)
+
+### Manhattan
+
+![alt text](static/screenshots/manhattan.png)
 
 #### Evidencia
 
@@ -53,7 +74,15 @@ Serena_Williams_0013.jpg, k=16, md:
 | N = 529 | 0.692 | 0.049 |
 | N = 650 | 1.029 | 0.058 |
 
-####Evidencia
+## Algoritmo
+
+Para knn-secuencial se usa el knn previo con distancia euclediana.
+
+Para knn rtree se usa una estructura R tree donde se insertan los
+```n``` encodings como dataset. Luego, se busca los k vecinos mas
+cercanos al encoding de la imagen subida.
+
+#### Evidencia
 
 k = 3
 
